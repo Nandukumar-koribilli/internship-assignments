@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .message {
+            color: green;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="login-section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p id="login-error" class="error"></p>
+            </form>
+        </div>
+
+        <!-- Add User Form (hidden initially) -->
+        <div id="add-user-section" class="hidden">
+            <h2>Add New User</h2>
+            <form id="add-user-form">
+                <div class="form-group">
+                    <label for="new-email">New Email:</label>
+                    <input type="email" id="new-email" name="new-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-password">New Password:</label>
+                    <input type="password" id="new-password" name="new-password" required>
+                </div>
+                <button type="submit">Add User</button>
+                <p id="add-user-message" class="message"></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorElement = document.getElementById('login-error');
+
+            // Email validation (simple regex)
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                errorElement.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                errorElement.textContent = 'Password must be at least 6 characters long.';
+                return;
+            }
+
+            // Allow any email and password that pass validation
+            errorElement.textContent = '';
+            document.getElementById('login-section').classList.add('hidden');
+            document.getElementById('add-user-section').classList.remove('hidden');
+        });
+
+        document.getElementById('add-user-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const newEmail = document.getElementById('new-email').value;
+            const newPassword = document.getElementById('new-password').value;
+            const messageElement = document.getElementById('add-user-message');
+
+            // Basic validation for new user
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(newEmail)) {
+                messageElement.textContent = 'Please enter a valid email address.';
+                messageElement.style.color = 'red';
+                return;
+            }
+
+            if (newPassword.length < 6) {
+                messageElement.textContent = 'Password must be at least 6 characters long.';
+                messageElement.style.color = 'red';
+                return;
+            }
+
+            // Simulated user addition
+            messageElement.textContent = `User ${newEmail} added successfully!`;
+            messageElement.style.color = 'green';
+            this.reset();
+        });
+    </script>
+</body>
+</html>

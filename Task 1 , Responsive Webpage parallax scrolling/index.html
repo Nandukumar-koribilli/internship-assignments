@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parallax Scrolling Website </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(#2b1055, #7597de);
+        }
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10000;
+        }
+        header .logo {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        header ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        header ul li {
+            list-style: none;
+            margin-left: 20px;
+        }
+        header ul li a {
+            text-decoration: none;
+            padding: 6px 15px;
+            color: #fff;
+            border-radius: 20px;
+        }
+        header ul li a:hover,
+        header ul li a.active {
+            background: #fff;
+            color: #2b1055;
+        }
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #1c0522, transparent);
+            z-index: 1000;
+        }
+        section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        section img#moon {
+            mix-blend-mode: screen;
+        }
+        section img#mountains_front {
+            z-index: 10;
+        }
+        #text {
+            position: absolute;
+            right: -250px;
+            color: #fff;
+            white-space: nowrap;
+            font-size: 7.5vw;
+            z-index: 9;
+        }
+        #btn {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 30px;
+            border-radius: 40px;
+            background: #fff;
+            color: #2b1055;
+            font-size: 1.5em;
+            z-index: 9;
+            transform: translateY(100px);
+        }
+        .sec {
+            position: relative;
+            padding: 100px;
+            background: #1c0522;
+        }
+        .sec h2 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .sec p {
+            font-size: 1em;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">BY Nandu</a>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <section>
+        <img src="images/stars.png" id="stars">
+        <img src="images/moon.png" id="moon">
+        <img src="images/mountains_behind.png" id="mountains_behind">
+        <h2 id="text">Moon from the earth 🌕✨🌎</h2>
+        <a href="#sec" id="btn">Explore</a>
+        <img src="images/mountains_front.png" id="mountains_front">
+    </section>
+    <div class="sec" id="sec">
+        <h2>Parallax Scrolling Effects</h2>
+        <p>The Moon is Earth’s only natural satellite and was formed about 4.6 billion years ago, likely after a giant impact between Earth and a Mars-sized body. The Moon orbits Earth at an average distance of 384,400 km (238,900 mi), and it takes 27.3 days to complete one orbit. The Moon also rotates on its own axis in the same time, which means we always see the same side of the Moon from Earth. The other side, called the far side, was first seen by a Soviet spacecraft in 1959.</p>
+        <p>The Moon has a diameter of 3,475 km (2,159 mi), which is about a quarter of Earth’s diameter. The Moon has a mass of 7.35 × 10^22 kg (0.01 Earths), which gives it a much weaker gravity than Earth. A person would weigh only 16.5% of their weight on Earth on the Moon. The Moon has no atmosphere, which means it has no weather and no sound. The Moon also has no liquid water, but it has some water ice in the polar regions.</p>
+        <p>The Moon’s surface is rocky and covered with craters, mountains, valleys, and plains. The dark areas we see on the Moon are called maria, which are ancient lava flows. The bright areas are called highlands, which are older and more heavily cratered. The Moon has some volcanic activity, but it is mostly dormant. The Moon also experiences quakes, caused by the tidal forces of Earth.</p>
+        <p>The Moon has been explored by many robotic and human missions. The first spacecraft to reach the Moon was Luna 1, launched by the Soviet Union in 1959. The first human to walk on the Moon was Neil Armstrong, as part of the Apollo 11 mission by the United States in 1969. The last human to visit the Moon was Gene Cernan, as part of the Apollo 17 mission in 1972. Since then, the Moon has been visited by several orbiters, landers, and rovers from various countries and agencies.</p>
+        <p>Moon (or Luna) is the Earth’s only natural satellite and was formed 4.6 billion years ago around some 30–50 million years after the formation of the solar system. The Moon is in synchronous rotation with Earth meaning the same side is always facing the Earth. The first uncrewed mission to the Moon was in 1959 by the Soviet Lunar Program with the first crewed landing being Apollo 11 in 1969.</p>
+        <p><strong>Moon Profile</strong><br>
+        Diameter: 3,475 km<br>
+        Mass: 7.35 × 10^22 kg (0.01 Earths)<br>
+        Orbits: The Earth<br>
+        Orbit Distance: 384,400 km<br>
+        Orbit Period: 27.3 days<br>
+        Surface Temperature: -233 to 123 °C</p>
+        <p><strong>Facts about the Moon</strong><br>
+        - The dark side of the moon is a myth. In reality both sides of the Moon see the same amount of sunlight however only one face of the Moon is ever seen from Earth.<br>
+        - The rise and fall of the tides on Earth is caused by the Moon.<br>
+        - The Moon is drifting away from the Earth approximately 3.8 cm every year.<br>
+        - A person would weigh much less on the Moon (16.5% of their Earth weight).<br>
+        - The Moon has only been walked on by 12 people; all American men.<br>
+        - The Moon has no atmosphere, meaning no sound and a black sky.<br>
+        - The Moon has quakes caused by Earth’s gravitational pull.<br>
+        - The first spacecraft to reach the Moon was Luna 1 in 1959.<br>
+        - The Moon is the fifth largest natural satellite in the Solar System.<br>
+        - During the 1950s, the USA considered detonating a nuclear bomb on the Moon (Project A119).</p>
+        <p>The Moon is important for Earth and humanity in many ways. The Moon stabilizes Earth’s tilt and climate, and it causes the tides in the oceans. The Moon is also a source of inspiration, curiosity, and scientific discovery. The Moon may also be a potential site for future colonization and resource extraction.</p>
+    </div>
+
+    <script>
+        let stars = document.getElementById('stars');
+        let moon = document.getElementById('moon');
+        let mountains_behind = document.getElementById('mountains_behind');
+        let text = document.getElementById('text');
+        let btn = document.getElementById('btn');
+        let mountains_front = document.getElementById('mountains_front');
+        let header = document.querySelector('header');
+
+        window.addEventListener('scroll', function() {
+            let value = window.scrollY;
+            stars.style.left = value * 0.25 + 'px';
+            moon.style.top = value * 1.05 + 'px';
+            mountains_behind.style.top = value * 0.5 + 'px';
+            mountains_front.style.top = value * 0 + 'px';
+            text.style.marginRight = value * 4 + 'px';
+            text.style.marginTop = value * 1.5 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            header.style.marginTop = value * 0.5 + 'px';
+        });
+    </script>
+</body>
+</html>
