@@ -122,20 +122,19 @@
             const password = document.getElementById('password').value;
             const errorElement = document.getElementById('login-error');
 
-            // Email validation (simple regex)
+            
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(email)) {
                 errorElement.textContent = 'Please enter a valid email address.';
                 return;
             }
 
-            // Password validation
+       
             if (password.length < 6) {
                 errorElement.textContent = 'Password must be at least 6 characters long.';
                 return;
             }
 
-            // Allow any email and password that pass validation
             errorElement.textContent = '';
             document.getElementById('login-section').classList.add('hidden');
             document.getElementById('add-user-section').classList.remove('hidden');
@@ -148,7 +147,7 @@
             const newPassword = document.getElementById('new-password').value;
             const messageElement = document.getElementById('add-user-message');
 
-            // Basic validation for new user
+     
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(newEmail)) {
                 messageElement.textContent = 'Please enter a valid email address.';
@@ -162,7 +161,7 @@
                 return;
             }
 
-            // Simulated user addition
+
             messageElement.textContent = `User ${newEmail} added successfully!`;
             messageElement.style.color = 'green';
             this.reset();
