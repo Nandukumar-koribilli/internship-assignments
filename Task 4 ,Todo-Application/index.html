@@ -166,13 +166,12 @@
 
             loadTasks();
 
-            // Add task when the Add button is clicked
+            
             addButton.addEventListener('click', () => {
                 console.log("Add button clicked!");
                 addTask();
             });
 
-            // Add task when Enter key is pressed
             taskInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
                     console.log("Enter key pressed!");
@@ -180,7 +179,7 @@
                 }
             });
 
-            // Function to add task (common logic for both button and Enter)
+         
             function addTask() {
                 const taskText = taskInput.value.trim();
 
@@ -199,13 +198,13 @@
                 taskInput.value = '';
             }
 
-            // Function to add task to the DOM
+     
             function addTaskToDOM(task) {
                 console.log("Adding task to DOM:", task);
                 const li = document.createElement('li');
                 li.className = task.completed ? 'complete' : 'incomplete';
 
-                // Structure: task text on left, checkbox and delete button on right
+         
                 li.innerHTML = `
                     <span>${task.text}</span>
                     <div class="task-controls">
